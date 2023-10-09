@@ -16,7 +16,7 @@ server {
 
     server_name subdominioprobando.armortemplate.site;
 
-    root /home/charlyg/cv-carlogammarota/;
+    root /var/www/subdominioprobando.armortemplate.site/index.html;
     index.html index.htm;
 
 
