@@ -11,8 +11,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    # depends_on:
-    #   - node-app
+    depends_on:
+      - node-app-2
     environment:
       - NGINX_PORT=${NGINX_PORT}  # Variable de entorno para NGINX
       - SSL_PORT=${SSL_PORT}  # Variable de entorno para NGINX
@@ -23,7 +23,7 @@ networks:
   my-network:
     driver: bridge
       
-# docker run -d --network=my-network --name mi-contenedor-ejecutado -h mi_nombre_de_contenedor -p 8788:2222 mi-app
+# docker run -d --network=my-network --name node-app-2 -p 8788:2222 mi-app
 #-h mi_nombre_de_contenedor
 
 # docker run --rm --network=my-network alpine nslookup mi-contenedor-ejecutado
