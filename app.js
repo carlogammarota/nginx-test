@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const port = 3000;
+const port = 8787;
 
 // Configurar una ruta para servir archivos estáticos (por ejemplo, tu archivo HTML)
 app.use(express.static(path.join(__dirname, 'public')));
