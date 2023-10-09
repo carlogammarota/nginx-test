@@ -18,3 +18,17 @@ EXPOSE 3000
 
 # Inicia la aplicación Node con Express
 CMD ["node", "app.js"]
+
+
+FROM nginx
+
+COPY argentinanoticias.armortemplate.site /etc/nginx/sites-enabled/argentinanoticias.armortemplate.site
+
+# Copia los archivos SSL a la ubicación predeterminada de Nginx
+COPY ssl/cert.pem /etc/ssl/cert.pem
+COPY ssl/key.pem /etc/ssl/key.pem
+
+# Exponer el puerto 80 de Nginx
+EXPOSE 80
+# Inicia Nginx
+CMD ["nginx", "-g", "daemon off;"]
