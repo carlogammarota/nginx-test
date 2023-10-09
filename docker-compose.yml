@@ -22,7 +22,7 @@ services:
       # - ./argentinanoticias.armortemplate.site:/etc/nginx/sites-enabled/argentinanoticias.armortemplate.site
     ports:
       - "80:80"
-      - "443:443"
+      # - "443:443"
     depends_on:
       - node-app
     environment:
