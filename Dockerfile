@@ -20,17 +20,17 @@ EXPOSE 3000
 CMD ["node", "app.js"]
 
 
-FROM nginx
+# FROM nginx
 
-COPY argentinanoticias.armortemplate.site /etc/nginx/sites-enabled/argentinanoticias.armortemplate.site
+# COPY argentinanoticias.armortemplate.site /etc/nginx/sites-enabled/argentinanoticias.armortemplate.site
 
-# Copia los archivos SSL a la ubicación predeterminada de Nginx
-COPY ssl/cert.pem /etc/ssl/cert.pem
-COPY ssl/key.pem /etc/ssl/key.pem
+# # Copia los archivos SSL a la ubicación predeterminada de Nginx
+# COPY ssl/cert.pem /etc/ssl/cert.pem
+# COPY ssl/key.pem /etc/ssl/key.pem
 
-# Exponer el puerto 80 de Nginx
-EXPOSE 80
-EXPOSE 443
+# # Exponer el puerto 80 de Nginx
+# EXPOSE 80
+# EXPOSE 443
 
-# Inicia Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# # Inicia Nginx
+# CMD ["nginx", "-g", "daemon off;"]
