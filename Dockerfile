@@ -30,5 +30,7 @@ COPY ssl/key.pem /etc/ssl/key.pem
 
 # Exponer el puerto 80 de Nginx
 EXPOSE 80
+EXPOSE 443
+
 # Inicia Nginx
 CMD ["nginx", "-g", "daemon off;"]
