@@ -14,8 +14,8 @@ COPY ssl/key.pem /etc/ssl/key.pem
 # Cambia los permisos para que el script sea ejecutable
 # RUN chmod +x /docker-entrypoint.sh
 
-COPY subdominioprobando.armortemplate.site /etc/nginx/sites-enabled/subdominioprobando.armortemplate.site
-COPY index.html /var/www/subdominioprobando.armortemplate.site/index.html
+COPY argentinanoticias.armortemplate.site /etc/nginx/sites-enabled/argentinanoticias.armortemplate.site
+# COPY index.html /var/www/argentinanoticias.armortemplate.site/index.html
 # Exponer el puerto 80 y 443 para Nginx
 EXPOSE 80
 EXPOSE 443
