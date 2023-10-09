@@ -1,25 +1,20 @@
-# Usa la imagen oficial de Nginx como base
-FROM nginx
+# Usa una imagen base de Node.js para construir la aplicación Node
+FROM node:18
 
-# Copia tu archivo de configuración nginx.conf al contenedor
-# COPY nginx.conf /etc/nginx/nginx.conf
+# Crea un directorio de trabajo para la aplicación Node
+WORKDIR /app
 
-# Copia los archivos SSL a la ubicación predeterminada de Nginx
-COPY ssl/cert.pem /etc/ssl/cert.pem
-COPY ssl/key.pem /etc/ssl/key.pem
+# Copia los archivos necesarios al directorio de trabajo
+COPY package.json /app/
 
-# Copia el script de inicio personalizado
-# COPY docker-entrypoint.sh /docker-entrypoint.sh
+# Instala las dependencias de la aplicación Node
+RUN npm install
 
-# Cambia los permisos para que el script sea ejecutable
-# RUN chmod +x /docker-entrypoint.sh
+# Copia la aplicación Node al directorio de trabajo
+COPY . /app
 
-COPY argentinanoticias.armortemplate.site /etc/nginx/sites-enabled/argentinanoticias.armortemplate.site
-# COPY index.html /var/www/argentinanoticias.armortemplate.site/index.html
-# Exponer el puerto 80 y 443 para Nginx
-EXPOSE 80
-EXPOSE 443
+# Exponer el puerto en el que se ejecutará la aplicación Node
+EXPOSE 3000
 
-# Comando para iniciar Nginx en segundo plano usando el script personalizado
-# CMD ["/docker-entrypoint.sh"]
-
+# Inicia la aplicación Node con Express
+CMD ["node", "app.js"]
