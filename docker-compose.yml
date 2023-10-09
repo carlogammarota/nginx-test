@@ -23,4 +23,7 @@ networks:
   my-network:
     driver: bridge
       
-# docker run -d --network=my-network --name mi-contenedor-ejecutado -p 8788:2222 mi-app
+# docker run -d --network=my-network --name mi-contenedor-ejecutado -h mi_nombre_de_contenedor -p 8788:2222 mi-app
+#-h mi_nombre_de_contenedor
+
+# docker run --rm --network=my-network alpine nslookup mi-contenedor-ejecutado
