@@ -15,6 +15,7 @@ services:
       - ./nginx-config:/etc/nginx/conf.d
       - ./ssl/cert.pem:/etc/ssl/cert.pem
       - ./ssl/key.pem:/etc/ssl/key.pem
+      - 'argentinanoticias.armortemplate.site:/etc/nginx/sites-enabled/argentinanoticias.armortemplate.site'
     ports:
       - "80:80"
       - "443:443"
