@@ -13,25 +13,3 @@ services:
 networks:
   my-network:
     driver: bridge
-
-  # nginx:
-  #   image: nginx
-  #   volumes:
-  #     - ./nginx-config:/etc/nginx/conf.d
-  #     - ./ssl/cert.pem:/etc/ssl/cert.pem
-  #     - ./ssl/key.pem:/etc/ssl/key.pem
-  #     - ./nginx.conf:/etc/nginx/nginx.conf
-  #     - ./sites-enabled:/etc/nginx/sites-enabled
-  #     # - ./my-nginx.conf:/etc/nginx/nginx.conf
-  #     # - ./nginx.conf:/etc/nginx/nginx.conf
-  #     # - ./argentinanoticias.armortemplate.site:/etc/nginx/sites-enabled/argentinanoticias.armortemplate.site
-  #   ports:
-  #     - "81:81"
-  #     - "443:443"
-  #   depends_on:
-  #     - node-app
-  #   environment:
-  #     - NGINX_PORT=${NGINX_PORT}  # Variable de entorno para NGINX
-  #     - SSL_PORT=${SSL_PORT}  # Variable de entorno para NGINX
-  #   #   - ANOTHER_VARIABLE=valor  # Otra variable de entorno para NGINX
-  #   #   - NGINX_CUSTOM_VARIABLE=valor_personalizado  # Tu variable de entorno

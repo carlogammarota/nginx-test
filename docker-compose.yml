@@ -23,3 +23,4 @@ networks:
   my-network:
     driver: bridge
       
+# docker run -d --network=my-network --name mi-contenedor-ejecutado -p 8787:2222 mi-contenedor-docker-compose
