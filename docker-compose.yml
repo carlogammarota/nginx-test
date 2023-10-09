@@ -1,14 +1,5 @@
 version: '3'
 services:
-  node-app:
-    image: node:18
-    working_dir: /app
-    volumes:
-      - ./app:/app
-    ports:
-      - "8787:8787"
-    command: ["node", "app.js"]
-
   nginx:
     image: nginx
     volumes:
@@ -17,16 +8,11 @@ services:
       - ./ssl/key.pem:/etc/ssl/key.pem
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./sites-enabled:/etc/nginx/sites-enabled
-      # - ./my-nginx.conf:/etc/nginx/nginx.conf
-      # - ./nginx.conf:/etc/nginx/nginx.conf
-      # - ./argentinanoticias.armortemplate.site:/etc/nginx/sites-enabled/argentinanoticias.armortemplate.site
     ports:
-      - "81:81"
+      - "80:80"
       - "443:443"
-    depends_on:
-      - node-app
+    # depends_on:
+    #   - node-app
     environment:
       - NGINX_PORT=${NGINX_PORT}  # Variable de entorno para NGINX
       - SSL_PORT=${SSL_PORT}  # Variable de entorno para NGINX
-    #   - ANOTHER_VARIABLE=valor  # Otra variable de entorno para NGINX
-    #   - NGINX_CUSTOM_VARIABLE=valor_personalizado  # Tu variable de entorno
