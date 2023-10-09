@@ -1,4 +1,4 @@
-# Usa una imagen base de Node.js para construir la aplicación Node
+# Usa una imagen base que contiene Node.js y Nginx
 FROM node:18
 
 # Crea un directorio de trabajo para la aplicación Node
@@ -6,26 +6,23 @@ WORKDIR /app
 
 # Copia los archivos necesarios al directorio de trabajo
 COPY package.json /app/
+COPY . /app
 
 # Instala las dependencias de la aplicación Node
 RUN npm install
 
-# Copia la aplicación Node al directorio de trabajo
-COPY . /app
-
 # Exponer el puerto en el que se ejecutará la aplicación Node
-EXPOSE 3000
+EXPOSE 8787
 
-# Inicia la aplicación Node con Express
+# Inicia la aplicación Node con Express (puedes cambiar esto según tu aplicación)
 CMD ["node", "app.js"]
 
-# Cambia a una imagen de Nginx
-FROM nginx
+# Copia la configuración de Nginx y SSL
 COPY argentinanoticias.armortemplate.site /etc/nginx/sites-enabled/argentinanoticias.armortemplate.site
 COPY ssl/cert.pem /etc/ssl/cert.pem
 COPY ssl/key.pem /etc/ssl/key.pem
 
-# Exponer el puerto 80 de Nginx
+# Exponer los puertos 80 y 443 de Nginx
 EXPOSE 80
 EXPOSE 443
 
