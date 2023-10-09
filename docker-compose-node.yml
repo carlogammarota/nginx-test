@@ -8,6 +8,9 @@ services:
     ports:
       - "8787:8787"
     command: ["node", "app.js"]
+networks:
+  my-network:
+    driver: bridge
 
   # nginx:
   #   image: nginx

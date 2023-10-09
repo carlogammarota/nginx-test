@@ -16,3 +16,8 @@ services:
     environment:
       - NGINX_PORT=${NGINX_PORT}  # Variable de entorno para NGINX
       - SSL_PORT=${SSL_PORT}  # Variable de entorno para NGINX
+
+networks:
+  my-network:
+    driver: bridge
+      
